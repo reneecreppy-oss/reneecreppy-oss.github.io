@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Renée Creppy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=DM+Serif+Display&family=Pixelify+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- pixel icons, used throughout with <svg><use href="#i-..."/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 16 16">
+      <rect x="1" y="1" width="14" height="10" fill="#3a312d"/>
+      <rect x="2" y="2" width="12" height="8" fill="#8fb0b8"/>
+      <rect x="3" y="3" width="4" height="1" fill="#fffaf1"/>
+      <rect x="3" y="4" width="2" height="1" fill="#fffaf1"/>
+      <rect x="6" y="11" width="4" height="2" fill="#9a8d7f"/>
+      <rect x="3" y="13" width="10" height="2" fill="#3a312d"/>
+      <rect x="4" y="13" width="8" height="1" fill="#ddd2c2"/>
+    </symbol>
+    <symbol id="i-about" viewBox="0 0 16 16">
+      <rect x="5" y="1" width="6" height="7" fill="#3a312d"/>
+      <rect x="6" y="2" width="4" height="5" fill="#e9c6ab"/>
+      <rect x="6" y="2" width="4" height="1" fill="#5a3a2e"/>
+      <rect x="2" y="9" width="12" height="6" fill="#3a312d"/>
+      <rect x="3" y="10" width="10" height="5" fill="#7a2436"/>
+      <rect x="7" y="10" width="2" height="2" fill="#f6eedf"/>
+    </symbol>
+    <symbol id="i-folder" viewBox="0 0 16 16">
+      <rect x="1" y="3" width="6" height="2" fill="#3a312d"/>
+      <rect x="1" y="5" width="14" height="9" fill="#3a312d"/>
+      <rect x="2" y="4" width="4" height="2" fill="#d9a85a"/>
+      <rect x="2" y="6" width="12" height="7" fill="#e6b968"/>
+      <rect x="2" y="6" width="12" height="1" fill="#f5d896"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 16 16">
+      <rect x="3" y="1" width="10" height="14" fill="#3a312d"/>
+      <rect x="4" y="2" width="8" height="12" fill="#fffaf1"/>
+      <rect x="9" y="2" width="3" height="3" fill="#ddd2c2"/>
+      <rect x="5" y="4" width="4" height="1" fill="#7a2436"/>
+      <rect x="5" y="7" width="6" height="1" fill="#9a8d7f"/>
+      <rect x="5" y="9" width="6" height="1" fill="#9a8d7f"/>
+      <rect x="5" y="11" width="4" height="1" fill="#9a8d7f"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 16 16">
+      <rect x="1" y="3" width="14" height="10" fill="#3a312d"/>
+      <rect x="2" y="4" width="5" height="8" fill="#fffaf1"/>
+      <rect x="9" y="4" width="5" height="8" fill="#fffaf1"/>
+      <rect x="7" y="3" width="2" height="11" fill="#7a2436"/>
+      <rect x="3" y="6" width="3" height="1" fill="#9a8d7f"/>
+      <rect x="3" y="8" width="3" height="1" fill="#9a8d7f"/>
+      <rect x="3" y="10" width="2" height="1" fill="#9a8d7f"/>
+      <rect x="10" y="6" width="3" height="1" fill="#9a8d7f"/>
+      <rect x="10" y="8" width="3" height="1" fill="#9a8d7f"/>
+      <rect x="10" y="10" width="2" height="1" fill="#9a8d7f"/>
+      <rect x="1" y="13" width="14" height="1" fill="#7a2436"/>
+    </symbol>
+    <symbol id="i-cv" viewBox="0 0 16 16">
+      <rect x="3" y="1" width="10" height="14" fill="#3a312d"/>
+      <rect x="4" y="2" width="8" height="12" fill="#fffaf1"/>
+      <rect x="4" y="2" width="8" height="3" fill="#7a2436"/>
+      <rect x="5" y="7" width="6" height="1" fill="#9a8d7f"/>
+      <rect x="5" y="9" width="6" height="1" fill="#9a8d7f"/>
+      <rect x="8" y="11" width="3" height="3" fill="#c99a9a"/>
+    </symbol>
+    <symbol id="i-mail" viewBox="0 0 16 16">
+      <rect x="1" y="3" width="14" height="10" fill="#3a312d"/>
+      <rect x="2" y="4" width="12" height="8" fill="#fffaf1"/>
+      <rect x="2" y="4" width="2" height="1" fill="#7a2436"/>
+      <rect x="4" y="5" width="2" height="1" fill="#7a2436"/>
+      <rect x="6" y="6" width="4" height="1" fill="#7a2436"/>
+      <rect x="10" y="5" width="2" height="1" fill="#7a2436"/>
+      <rect x="12" y="4" width="2" height="1" fill="#7a2436"/>
+    </symbol>
+    <symbol id="i-star" viewBox="0 0 16 16">
+      <polygon points="8,1 10,6 15,6 11,9.5 12.5,15 8,11.8 3.5,15 5,9.5 1,6 6,6" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-back" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="7" fill="#7a2436"/>
+      <path d="M8.5 4 4.5 8l4 4M4.5 8H12" stroke="#fffaf1" stroke-width="2" fill="none"/>
+    </symbol>
+    <symbol id="i-forward" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="7" fill="#9c4556"/>
+      <path d="M7.5 4l4 4-4 4M11.5 8H4" stroke="#fffaf1" stroke-width="2" fill="none"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 16 16">
+      <path d="M13 8.5A5 5 0 1 1 11.5 4.5" stroke="#3a312d" stroke-width="2" fill="none"/>
+      <path d="M13 1v4.5H8.5" stroke="#3a312d" stroke-width="2" fill="none"/>
+    </symbol>
+    <symbol id="i-house" viewBox="0 0 16 16">
+      <polygon points="8,1.5 15,8 13,8 13,14.5 3,14.5 3,8 1,8" fill="#f6eedf" stroke="#3a312d" stroke-width="1.2"/>
+      <rect x="7" y="10" width="3" height="4.5" fill="#7a2436"/>
+    </symbol>
+    <symbol id="i-print" viewBox="0 0 16 16">
+      <rect x="4" y="1" width="8" height="5" fill="#fffaf1" stroke="#3a312d"/>
+      <rect x="1" y="6" width="14" height="6" fill="#ddd2c2" stroke="#3a312d"/>
+      <rect x="4" y="10" width="8" height="5" fill="#fffaf1" stroke="#3a312d"/>
+      <rect x="12" y="8" width="1" height="1" fill="#7a2436"/>
+    </symbol>
+    <symbol id="i-globe" viewBox="0 0 16 16">
+      <circle cx="8" cy="8" r="6.5" fill="#8fb0b8" stroke="#3a312d"/>
+      <path d="M1.5 8h13M8 1.5c-3 3-3 10 0 13M8 1.5c3 3 3 10 0 13" stroke="#3a312d" fill="none"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="desktop">
+  <div class="browser">
+
+    <!-- title bar -->
+    <div class="titlebar">
+      <svg class="ico16"><use href="#i-globe"/></svg>
+      <span class="titlebar-text" id="window-title">Renée Creppy - Personal Website</span>
+      <div class="title-buttons" aria-hidden="true"><span>_</span><span>□</span><span>×</span></div>
+    </div>
+
+    <!-- menu bar (decorative) -->
+    <div class="menubar" aria-hidden="true">
+      <span>File</span><span>Edit</span><span>View</span><span>Favorites</span><span>Tools</span><span>Help</span>
+    </div>
+
+    <!-- toolbar -->
+    <div class="toolbar">
+      <button class="tool" data-action="back"><svg><use href="#i-back"/></svg><span>Back</span></button>
+      <button class="tool" data-action="forward"><svg><use href="#i-forward"/></svg><span>Forward</span></button>
+      <button class="tool" data-action="refresh"><svg><use href="#i-refresh"/></svg><span>Refresh</span></button>
+      <a class="tool" href="#home"><svg><use href="#i-house"/></svg><span>Home</span></a>
+      <span class="tool-sep" aria-hidden="true"></span>
+      <a class="tool hide-sm" href="mailto:rcreppy@stanford.edu"><svg><use href="#i-mail"/></svg><span>Mail</span></a>
+      <button class="tool hide-sm" data-action="print"><svg><use href="#i-print"/></svg><span>Print</span></button>
+    </div>
+
+    <!-- address bar -->
+    <div class="addressbar">
+      <span class="address-label">Address</span>
+      <div class="address-field">
+        <svg class="ico16"><use href="#i-globe"/></svg>
+        <span id="address">http://www.reneecreppy.com/</span>
+      </div>
+      <a class="btn98 go" href="#home">Go</a>
+    </div>
+
+    <div class="viewport">
+
+      <!-- desktop-icon navigation -->
+      <nav class="sidebar" aria-label="Site">
+        <a href="#home" data-page="home"><svg><use href="#i-home"/></svg><span>Home</span></a>
+        <a href="#about" data-page="about"><svg><use href="#i-about"/></svg><span>About</span></a>
+        <a href="#research" data-page="research"><svg><use href="#i-folder"/></svg><span>Research</span></a>
+        <a href="#publications" data-page="publications"><svg><use href="#i-doc"/></svg><span>Publications</span></a>
+        <a href="#open-science" data-page="open-science"><svg><use href="#i-book"/></svg><span>Open Science</span></a>
+        <a href="#cv" data-page="cv"><svg><use href="#i-cv"/></svg><span>CV</span></a>
+        <a href="#contact" data-page="contact"><svg><use href="#i-mail"/></svg><span>Contact</span></a>
+      </nav>
+
+      <div class="checker" aria-hidden="true"></div>
+
+      <main class="content">
+
+        <!-- ================= HOME ================= -->
+        <section class="page" id="page-home">
+          <div class="hero-b win">
+            <div class="win-title"><span>welcome.txt</span><span class="title-buttons sm" aria-hidden="true"><span>_</span><span>×</span></span></div>
+            <div class="win-body">
+              <div>
+                <h1>Renée Creppy</h1>
+                <p class="kicker">PhD Student in Psychology &middot; Stanford University</p>
+              </div>
+              <svg class="orbit" viewBox="0 0 120 80" aria-hidden="true">
+                <ellipse cx="62" cy="40" rx="50" ry="22" transform="rotate(-18 62 40)" fill="none" stroke="#7a2436" stroke-width="1.2"/>
+                <use href="#i-star" x="4" y="44" width="16" height="16" color="#7a2436"/>
+                <use href="#i-star" x="86" y="4" width="12" height="12" color="#7a2436"/>
+                <use href="#i-star" x="102" y="52" width="9" height="9" color="#9c4556"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="home-grid">
+            <figure class="win photo-win">
+              <div class="win-title"><span>me.jpg</span><span class="title-buttons sm" aria-hidden="true"><span>_</span><span>×</span></span></div>
+              <div class="photo-frame">
+                <!-- put your photo in this folder as photo.png -->
+                <img src="photo.png" alt="Renée Creppy" onerror="this.parentElement.classList.add('missing')">
+                <div class="placeholder"><span>your photo here<br><code>photo.jpg</code></span></div>
+              </div>
+            </figure>
+
+            <div class="intro">
+              <p class="lede">I study how children understand power, authority, hierarchy, and the social relationships around them.</p>
+
+              <div class="panel">
+                <div class="panel-head">Current research interests</div>
+                <ul class="stars">
+                  <li>Social cognition</li>
+                  <li>Power &amp; social hierarchy</li>
+                  <li>Authority &amp; legitimacy</li>
+                  <li>Cognitive development</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="win links">
+            <div class="win-title"><span>find_me_online.txt</span><span class="title-buttons sm" aria-hidden="true"><span>_</span><span>×</span></span></div>
+            <div class="win-body">
+              <a class="btn98" href="https://www.linkedin.com/in/renée-creppy-4958661b6/" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn98" href="https://bsky.app/profile/creppy-renee.bsky.social" target="_blank" rel="noopener">Bluesky</a>
+              <a class="btn98" href="https://x.com/creppy_renee" target="_blank" rel="noopener">Twitter / X</a>
+            </div>
+          </div>
+
+          <p class="badges" aria-hidden="true">
+            <span class="badge"><b>HTML</b>handmade</span>
+            <span class="badge"><b>&#9733;</b>est. 2026</span>
+          </p>
+        </section>
+
+        <!-- ================= ABOUT ================= -->
+        <section class="page" id="page-about" hidden>
+          <h2>About me</h2>
+          <p>Hi! I’m Renée, a first-year PhD student in Psychology at Stanford University, working with <a href="https://robertslab.stanford.edu">Prof. Steven Roberts</a>.</p>
+          <p>Before grad school, I attended Xavier University of Louisiana, where I double majored in neuroscience and French (and took a lot of fun theology courses along the way). I am very grateful to have had amazing professors that encouraged me to put my study of science in context with other disciplines and to appreciate the many ways of knowing.</p>
+          <p>My interest in how people think about power began in French class. Hearing my professor describe Michel Foucault’s ideas about power made me wonder how people are able to sense and recognize power differences in the relationships we encounter everyday. That curiosity grew during my time as a lab manager at Princeton, where I worked on a project about children’s expectations of leaders. Our experiments asked children what they thought about an established power structure, but I also wanted to understand how they think those structures come to be. How do children reason about social hierarchies? How do they think about factors such as merit and legitimacy in determining who gains power? These are some of the questions I hope to explore as a graduate student :)</p>
+
+          <h3 class="sub">A bit more about me</h3>
+          <p>I grew up in Indiana, and my family is originally from Ghana. Outside of research, I love talking about music and attending live music events, trying out new restaurants with friends, and keeping up with soccer.</p>
+
+          <h3 class="sub">Background</h3>
+          <ul class="timeline">
+            <li><span class="when">Present</span><span><strong>PhD, Psychology</strong> &middot; Stanford University</span></li>
+            <li><span class="when">2024&ndash;2026</span><span><strong>Lab Manager</strong> &middot; Princeton CoLab </span></li>
+            <li><span class="when">2024</span><span><strong>B.S. Neuroscience &amp; B.A. French</strong> &middot; Xavier University of Louisiana</span></li>
+          </ul>
+        </section>
+
+        <!-- ================= RESEARCH ================= -->
+        <section class="page" id="page-research" hidden>
+          <h2>Research</h2>
+          <div class="win coming-soon">
+            <div class="win-title"><span>under_construction.exe</span><span class="title-buttons sm" aria-hidden="true"><span>×</span></span></div>
+            <div class="win-body">
+              <svg class="ico32"><use href="#i-folder"/></svg>
+              <div>
+                <p class="soon-title">coming soon!</p>
+                <p class="muted">I&rsquo;m a first-year, so my projects are still loading. Check back later.</p>
+                <div class="progress" aria-hidden="true"><span></span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= PUBLICATIONS ================= -->
+        <section class="page" id="page-publications" hidden>
+          <h2>Publications &amp; Presentations</h2>
+
+          <h3 class="sub">Selected conference presentations</h3>
+          <div class="win explorer">
+            <div class="win-title"><span>C:\My Documents\Posters</span></div>
+            <div class="win-body flush">
+              <div class="file-head"><span>Name</span><span>Type</span><span>Year</span></div>
+              <ul class="files">
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite"><strong>Creppy, R.</strong>, &amp; Vélez, N. (2026, April). Children’s expectations of dominant &amp; prestigious leaders. Poster presented at the <em>Cognitive Development Society Biennial Meeting</em>, Montreal, Canada.</span>
+                  <span class="type">Poster</span><span class="year">2026</span>
+                </li>
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite">Coates, N., <strong>Creppy, R.</strong>, Siegel, M., Pelz, M., Tenenbaum, J., &amp; Schulz, L. (2024, March). Preschoolers represent abstract relational properties of sets and functions. Symposium at the <em>Cognitive Development Society Biennial Meeting</em>, Pasadena, CA.</span>
+                  <span class="type">Symposium</span><span class="year">2024</span>
+                </li>
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite"><strong>Creppy, R.</strong>, Angelides, N. H., &amp; Platt, M. L. (2023, April). The dissociable roles of predicting, planning, &amp; reacting in action anticipation. Poster presented at the <em>Festival of Scholars at Xavier University of Louisiana</em>, New Orleans, LA.</span>
+                  <span class="type">Poster</span><span class="year">2023</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="sub">Invited talks</h3>
+          <div class="win explorer">
+            <div class="win-title"><span>C:\My Documents\Talks</span></div>
+            <div class="win-body flush">
+              <div class="file-head"><span>Name</span><span>Type</span><span>Year</span></div>
+              <ul class="files">
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite"><em>Who takes and who gives? Children’s expectations of leaders in dominant and prestigious relationships.</em> Johns Hopkins University, LIU Lab (PI: Shari Liu, Ph.D.).</span>
+                  <span class="type">Talk</span><span class="year">2026</span>
+                </li>
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite"><em>Growing up in science.</em> Xavier University of Louisiana, McNair Scholars Program.</span>
+                  <span class="type">Talk</span><span class="year">2025</span>
+                </li>
+                <li>
+                  <svg class="ico16"><use href="#i-doc"/></svg>
+                  <span class="cite"><em>My story so far: My undergraduate research journey &amp; how to find research opportunities.</em> Xavier University of Louisiana, McNair Scholars Closing Ceremony.</span>
+                  <span class="type">Talk</span><span class="year">2023</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= OPEN SCIENCE ================= -->
+        <section class="page" id="page-open-science" hidden>
+          <h2>Open Science &amp; Resources</h2>
+          <p class="lede">So much of getting into research runs on unwritten rules. Here are resources that helped me, in case they help you too.</p>
+
+          <div class="resource-grid">
+            <div class="win">
+              <div class="win-title"><span class="t"><svg class="ico16"><use href="#i-folder"/></svg>C:\grad_apps</span></div>
+              <div class="win-body">
+                <ul class="res-list">
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://www.asfp.io" target="_blank" rel="noopener">Application Statement Feedback Program (ASFP)</a><p>I used this last time I applied, and it was great! They match you with reviewers in your discipline, and it’s nice to get an extra set of eyes on your materials.</p></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://nextgenpsychscholars.com" target="_blank" rel="noopener">NextGen Psych Scholars Program</a></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://www.cientificolatino.com/gsmi" target="_blank" rel="noopener">Científico Latino</a><p>Their mentorship program, plus lots of resources on their website about applications.</p></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://mitch.web.unc.edu/wp-content/uploads/sites/4922/2017/02/MitchGradSchoolAdvice.pdf" target="_blank" rel="noopener">Mitch Prinstein’s grad school advice</a><p>Even though I wasn’t applying to clinical psych programs, his advice made me less scared about the process. Highly recommend!</p></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://acrobat.adobe.com/id/urn:aaid:sc:VA6C2:767e7ac7-a4d6-41ce-8a45-e4509cb86d7d" target="_blank" rel="noopener">Guide to applying to grad school</a><p>A guide I highly recommend.</p></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://jamilzaki.substack.com/p/so-youre-applying-for-a-phd-in-psychology" target="_blank" rel="noopener">Prof. Jamil Zaki’s guide to applying</a><p>&ldquo;So you’re applying for a PhD in psychology.&rdquo;</p></div></li>
+                  <li><svg class="ico16"><use href="#i-star"/></svg><div><strong>Tip: start an academic Twitter</strong><p>Follow psychologists you look up to. Scientists often post and repost really helpful things (programs, advice, a friend who’s accepting students or has a lab opening), and you’ll often hear about it there first.</p></div></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="win">
+              <div class="win-title"><span class="t"><svg class="ico16"><use href="#i-folder"/></svg>C:\predoc_jobs</span></div>
+              <div class="win-body">
+                <ul class="res-list">
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://psychandneuro.duke.edu/undergraduate/research-opportunities-jobs" target="_blank" rel="noopener">Duke RA job board</a></div></li>
+                  <li><svg class="ico16"><use href="#i-doc"/></svg><div><a href="https://undergrad.psychology.fas.harvard.edu/post-graduate-research-jobs" target="_blank" rel="noopener">Harvard Psych RA job board</a></div></li>
+                  <li><svg class="ico16"><use href="#i-star"/></svg><div><strong>Tip: check academic Twitter for openings</strong><p>Also look into joining a society’s listserv to hear about open positions for RAs, lab managers, postdocs, and more.</p></div></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CV ================= -->
+        <section class="page" id="page-cv" hidden>
+          <h2>CV</h2>
+
+          <div class="win dialog">
+            <div class="win-title"><span>File Download</span><span class="title-buttons sm" aria-hidden="true"><span>×</span></span></div>
+            <div class="win-body">
+              <div class="dialog-row">
+                <svg class="ico32"><use href="#i-cv"/></svg>
+                <div>
+                  <p>You are about to open:</p>
+                  <p class="file-name">Creppy_CV.pdf</p>
+                  <p class="muted">Last updated: October 2026</p>
+                </div>
+              </div>
+              <div class="progress" aria-hidden="true"><span></span></div>
+              <div class="dialog-buttons">
+                <!-- put your CV in this folder as cv.pdf -->
+                <a class="btn98" href="cv.pdf" target="_blank" rel="noopener">View</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= CONTACT ================= -->
+        <section class="page" id="page-contact" hidden>
+          <h2>Contact</h2>
+          <p>I&rsquo;m always happy to talk about research, grad school, or a good book. Email is the best way to reach me.</p>
+
+          <div class="win message">
+            <div class="win-title"><span>New Message</span><span class="title-buttons sm" aria-hidden="true"><span>_</span><span>×</span></span></div>
+            <div class="win-body">
+              <div class="field"><span>To:</span><div class="sunken">rcreppy@stanford.edu</div></div>
+              <div class="field"><span>Subject:</span><div class="sunken">hello!</div></div>
+              <div class="sunken body-box">Hi Renée, &hellip;</div>
+              <a class="btn98" href="mailto:rcreppy@stanford.edu?subject=hello!">
+                <svg class="ico16"><use href="#i-mail"/></svg> Send
+              </a>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <!-- status bar -->
+    <div class="statusbar">
+      <div class="status-cell grow">&#9733;&ensp;Welcome to my corner of the internet!&ensp;&#9733;</div>
+      <div class="status-cell">Last updated: Oct 2026</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const titles = {
+    home: 'Home', about: 'About', research: 'Research',
+    publications: 'Publications & Presentations', 'open-science': 'Open Science & Resources',
+    cv: 'CV', contact: 'Contact'
+  };
+  const navLinks = document.querySelectorAll('.sidebar a');
+  const address = document.getElementById('address');
+
+  function route() {
+    let page = location.hash.slice(1);
+    if (!titles[page]) page = 'home';
+
+    document.querySelectorAll('.page').forEach(s => s.hidden = s.id !== 'page-' + page);
+    navLinks.forEach(a => {
+      const on = a.dataset.page === page;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+
+    address.textContent = 'http://www.reneecreppy.com/' + (page === 'home' ? '' : page + '.html');
+    document.title = page === 'home' ? 'Renée Creppy' : titles[page] + ' · Renée Creppy';
+  }
+
+  window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
+  route();
+
+  // toolbar buttons
+  const actions = {
+    back: () => history.back(),
+    forward: () => history.forward(),
+    refresh: () => location.reload(),
+    print: () => window.print()
+  };
+  document.querySelectorAll('[data-action]').forEach(b =>
+    b.addEventListener('click', () => actions[b.dataset.action]()));
+
+  // sparkles trail the cursor over the nav icons
+  const sparkleColors = ['#7a2436', '#c99a9a', '#d9a85a'];
+  let lastSparkle = 0;
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelector('.sidebar').addEventListener('pointermove', e => {
+      if (!e.target.closest('a') || e.timeStamp - lastSparkle < 40) return;
+      lastSparkle = e.timeStamp;
+
+      const s = document.createElement('span');
+      s.className = 'sparkle';
+      s.textContent = Math.random() < .5 ? '✦' : '✧';
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      s.style.color = sparkleColors[Math.floor(Math.random() * sparkleColors.length)];
+      s.style.fontSize = (10 + Math.random() * 10) + 'px';
+      s.style.setProperty('--dx', (Math.random() * 30 - 15) + 'px');
+      s.style.setProperty('--dy', (Math.random() * -30 - 8) + 'px');
+      document.body.appendChild(s);
+      s.addEventListener('animationend', () => s.remove());
+    });
+  }
+</script>
+</body>
+</html>
